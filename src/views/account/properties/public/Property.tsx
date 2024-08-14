@@ -207,7 +207,7 @@ const Property: FC = () => {
                                     <button className={ classes.property__btn } onClick={ () => setIsOpen(true) }>Show all { numberOfAmenities() } amenities</button>
                                 </div>
                             </div> 
-                            
+                             
                             { hasSellingPoints() && (
                                 <div className={ classes.property__sellingPoints }>
                                     <div className={ classes.property__title }>
