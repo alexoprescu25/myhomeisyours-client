@@ -206,7 +206,7 @@ const Property: FC = () => {
                                 <div className={ classes.property__actions }>
                                     <button className={ classes.property__btn } onClick={ () => setIsOpen(true) }>Show all { numberOfAmenities() } amenities</button>
                                 </div>
-                            </div>
+                            </div> 
                             
                             { hasSellingPoints() && (
                                 <div className={ classes.property__sellingPoints }>
