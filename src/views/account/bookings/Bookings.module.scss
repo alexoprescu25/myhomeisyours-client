@@ -1,0 +1,67 @@
+.bookings {
+    &__pagination {
+        margin: 2rem 4rem;
+    }
+
+    &__disclaimer {
+        @include max-width(fit-content);
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: 1rem;
+
+        @include rounded($medium-border-radius);
+        background-color: rgb(204, 229, 255);
+        color: rgb(0, 64, 133);
+        padding: 2rem;
+        margin: 2rem 2rem 1rem 2rem;
+
+        h1 {
+            font-size: $font-30;
+            font-weight: $weight-medium;
+        }
+    }
+
+    &__filter {
+        @include max-width(100%);
+        margin: 0 2rem;
+    }
+    
+    &__data {
+        & > div {
+            padding-top: 0;
+        }
+    }
+}
+
+.delete {
+    &__container {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        @include x-align-items(center);
+        gap: 1rem;
+        
+        padding: 4rem 2rem;
+    }
+
+    &__image {
+        @include max-width(6rem);
+
+        img {
+            @include max-width(100%);
+        }
+    }
+
+    &__actions {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        margin: 0 {top: 2rem;};
+    }
+
+    &__heading {
+        font-size: $font-24;
+        font-weight: $weight-medium;
+        text-align: center;
+    }
+}

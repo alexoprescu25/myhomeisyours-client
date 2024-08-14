@@ -1,0 +1,82 @@
+.input {
+    position: relative;
+
+    &--icon {
+        input {
+            padding: .8rem 3.4rem .3rem !important;
+        }
+
+        input:is(:focus) ~ .input__placeholder,
+        input:not(:placeholder-shown) ~ .input__placeholder {
+            left: 3.4rem;
+        }
+
+        .input__placeholder {
+            left: 4rem;
+        }
+    }
+
+    input {
+        @include primary-input($padding: .8rem 1.6rem .3rem);
+
+        &:is(:focus) {
+            outline: none;
+        }
+
+        &.is-dirty {
+            // outline: none;
+            @include box-shadow(0 2px 10px 0 rgba($delete-background-color, 0.2));
+            border: .1rem solid rgba($delete-background-color, .4);
+    
+            & ~ span.placeholder {
+                color: $delete-background-color;
+                top: 2.8rem;
+            }
+    
+            &:is(:focus, :focus-visible, :not(:placeholder-shown)) {
+                outline: none;
+                border: .1rem solid $delete-background-color;
+            }
+        }
+    }
+
+    &__placeholder {
+        @include transition($main-transition);
+        font-size: $font-16;
+        font-weight: $large-weight;
+        position: absolute;
+        top: 1.2rem;
+        left: 2rem;
+        color: rgb(112, 113, 123);
+        pointer-events: none;
+    }
+
+    input:is(:focus) ~ &__placeholder,
+    input:not(:placeholder-shown) ~ &__placeholder {
+        top: .4rem;
+        left: 1.6rem;
+        transform: none;
+        font-size: $font-12;
+    }  
+
+    &__danger {
+        p {
+            display: block;
+            margin: .4rem;
+            color: $delete-background-color;
+            font: {
+                size: $font-14;
+            }
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 1.8rem;
+        left: 2rem;
+
+        svg {
+            font-size: $font-16;
+        }
+    }
+}

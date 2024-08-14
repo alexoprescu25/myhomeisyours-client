@@ -1,0 +1,79 @@
+%main-link {
+    color: $main-blue-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+}
+
+%scrollbar {
+    /* width */
+    &::-webkit-scrollbar {
+        width: .6rem;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: rgb(241, 241, 241); 
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: rgb(136, 136, 136); 
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(85, 85, 85); 
+    }
+}
+
+%ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+%modal-alignment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+%hidden {
+    visibility: hidden;
+    display: none !important;
+}
+
+%center-element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+}
+
+%space-between {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    justify-content:  space-between;
+    -ms-flex-pack:  justify;
+    -webkit-box-pack:  justify;
+}
+
+%fill-available {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}

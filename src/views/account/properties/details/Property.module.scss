@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+@mixin small-font {
+    @include roboto(500);
+    color: #949494; 
+    font-size: 14px
+}
+
+@mixin default-font {
+    @include roboto(500);
+    color: #000000; 
+    font-size: 15px
+}
+
+@mixin subtitle-font {
+    @include roboto(500);
+    color: #000000; 
+    font-size: 22px
+}
+
+.delete {
+    @include delete-modal;
+}
+
+.property {
+    &__actions {
+        &--backButton{
+            @include rounded($large-border-radius);
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 12px;
+            border: none;
+            box-shadow: inset 0 0 0 1.5px #000; 
+            background-color: $color-white;
+            color: $color-dark;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            margin: 0 10px 20px 0;
+
+            svg {
+                margin-right: 6px;
+                font-size: 14px;
+            }
+        }
+
+        &--edit{
+            @include rounded($large-border-radius);
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 12px;
+            border: none;
+            background-color: #884d00;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+
+            svg {
+                margin-right: 6px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__actionsbar {
+        display: flex;
+        justify-content: space-between;  
+
+        .active{
+            border-bottom: 1.5px solid black;
+            //background-color: #e2e2e2;
+        }
+
+        &--buttonsContainer {
+            display: flex;
+        }
+    }
+
+    &__item {
+        @include x-display-flex;
+        @include x-align-items(center);
+        @include transition($main-transition);
+        @include default-font();
+        padding: 1rem 3rem;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        color: $color-dark;
+
+        svg {
+            margin: 0 {right: .6rem;};
+        }
+
+        &:hover {
+            background-color: rgb(228, 243, 174);
+        }
+
+        &--delete {
+            background-color: rgba($delete-background-color, 10%);
+            color: $delete-background-color;
+
+            &:hover {
+                background-color: $delete-background-color;
+                color: $color-white;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        &--lastUpdated{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+
+            p{
+                @include small-font();
+            }
+        }
+    }
+
+    &__heading {
+        font-size: $font-30;
+        font-weight: $weight-medium;
+    }
+
+    &__reminder {
+        @include rounded($medium-border-radius);
+        background-color: rgb(204, 229, 255);
+        color: rgb(0, 64, 133);
+        padding: 1rem 2rem;
+        margin: 2rem 2rem 1rem 2rem;
+
+        p {
+            &:first-child {
+                font-size: $font-20;
+            }
+        }
+    }
+
+    &__availability {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: 1rem;
+
+        margin: 2rem;
+    }
+
+    &__toggle {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+    }
+
+    &__activity {
+        margin: 2rem;
+    }
+}
+
+.breadcrumbs {
+    @include x-display-flex;
+    @include x-align-items(center);
+    gap: 1rem;
+    margin-bottom: 15px;
+
+    p{
+        @include small-font();
+    }
+
+    &__link {
+        display: block;
+        @include small-font();
+        
+        
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

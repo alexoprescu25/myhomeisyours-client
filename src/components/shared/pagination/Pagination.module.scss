@@ -1,0 +1,17 @@
+.pagination {
+    @include x-display-flex;
+    @include x-align-items(center);
+    gap: 1rem;
+
+    margin: 2rem 0;
+
+    &__link {
+        @include rounded-button($font-size: $font-20);
+
+        &--active,
+        &--active:hover {
+            background-color: $color-dark;
+            color: $color-white;
+        }
+    }
+}

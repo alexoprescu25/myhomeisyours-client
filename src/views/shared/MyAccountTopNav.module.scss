@@ -1,0 +1,39 @@
+.navigation {
+    @include rounded(0 0 $medium-border-radius $medium-border-radius);
+    @include box-shadow($component-box-shadow);
+    position: fixed;
+    top: 0;
+    right: 2rem;
+    z-index: 9;
+    background-color: $color-white;
+    padding: .4rem 2rem;
+
+    &__profile {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        cursor: pointer;
+
+        img {
+            @include square(100%);
+            object-fit: cover;
+        }
+    }
+
+    &__image {
+        @include circle(5rem);
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        p {
+            font-size: $font-16;
+            color: $color-dark;
+        }
+    }
+}

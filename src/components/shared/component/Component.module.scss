@@ -1,0 +1,6 @@
+.component {
+    @include rounded($medium-border-radius);
+    padding: 2rem;
+
+    background-color: $color-white;
+}

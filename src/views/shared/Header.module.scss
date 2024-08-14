@@ -1,0 +1,19 @@
+.header {
+    @include max-width(100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+
+    padding: 1rem 2rem;
+    background-color: $color-white;
+    border-bottom: .1rem solid rgba($color-dark, 20%);
+
+    &__logo {
+        @include max-width(24rem);
+
+        img {
+            @include max-width(100%);
+        }
+    }
+}

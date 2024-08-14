@@ -1,0 +1,75 @@
+$colors: (
+    home: rgb(110, 110, 110),
+    accounts: rgb(110, 110, 110),
+    createproperty: rgb(110, 110, 110),
+    listings: rgb(110, 110, 110)
+);
+
+.item {
+    @include rounded($large-border-radius);
+    @include x-display-flex;
+    @include x-align-items(center);
+    gap: .6rem;
+
+    @include transition($main-transition);
+    @include max-width(100%);
+    padding: 1rem 2rem;
+    font-size: $font-16;
+    color: rgb(110, 110, 110);
+
+    &--active {
+        background-color: rgb(230, 231, 235);
+        color: $color-dark;
+        font-weight: $normal-weight;
+    
+        svg {
+            color: $color-dark;
+        }
+    }
+
+    &__icon {
+        @each $item, $value in $colors {
+            &--#{$item} {
+                color: $value;
+            }
+        }
+    }
+
+    &__dropdown {
+        @include max-width(100%);
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        @include x-align-items(center);
+        gap: .6rem;
+
+        @include rounded($large-border-radius);
+        @include transition($main-transition);
+        @include max-width(100%);
+        font-size: $font-16;
+        color: rgb(202, 206, 207);
+    }
+
+}
+
+.item:hover:not(.item--active){
+    color: #000000;
+
+    svg{
+        color: #000000;
+    }
+}
+
+
+.subitem {
+    @include max-width(100%);
+    display: block;
+    padding: 0 4.2rem;
+    color: rgb(202, 206, 207);
+    font-size: $font-14;
+
+    &:hover,
+    &--active {
+        color: $color-white;
+        font-weight: $normal-weight;
+    }
+}

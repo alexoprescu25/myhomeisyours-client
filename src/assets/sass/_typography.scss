@@ -1,0 +1,51 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $hairline-weight;
+}
+
+h1 {
+    font-size: $font-30;
+}
+
+h2 {
+    font-size: $font-24;
+}
+
+h3 {
+    font-size: $font-16;
+}
+
+h4 {
+    font-size: $font-14;
+}
+
+h5 {
+    font-size: $font-12;
+}
+
+h6 {
+    font-size: $font-12;
+}
+
+h3,
+h4,
+h5 {
+    margin-top: 5px;
+    font-weight: $weight-medium;
+}
+
+p {
+    font-size: $font-16;
+}
+
+.heading-primary {
+    color: rgb(33, 43, 54);
+    font: {
+        size: $font-24;
+        weight: $weight-medium;
+    }
+}

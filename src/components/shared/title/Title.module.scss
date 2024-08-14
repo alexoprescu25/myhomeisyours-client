@@ -1,0 +1,17 @@
+.component {
+    @include x-display-flex;
+    @include x-align-items(center);
+    gap: 1rem;
+
+    margin: .6rem 0;
+
+    &__title {
+        font-size: $font-20;
+        font-weight: $weight-medium;
+        color: $color-dark;
+    }
+
+    &__image {
+        @include max-width(2.4rem);
+    }
+}

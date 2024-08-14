@@ -1,0 +1,29 @@
+.view {
+    &__heading {
+        font-size: $font-24;
+        font-weight: $weight-medium;
+    }
+
+    &__details {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: .6rem;
+        
+        margin: 0 {bottom: 4rem};
+    }
+
+    &__box {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: .4rem;
+        
+        img {
+            @include max-width(4rem);
+        }
+    }
+
+    &__counter {
+        font-size: $font-30;
+        font-weight: $weight-medium;
+    }
+}

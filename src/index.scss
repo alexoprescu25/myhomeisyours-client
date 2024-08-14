@@ -1,0 +1,170 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: $main-font;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+html {
+	/* stylelint-disable-next-line property-no-vendor-prefix */
+	-webkit-text-size-adjust: 100%;
+	font-size: 62.5%;
+}
+
+body {
+    font-family: $main-font;
+	
+	background-color: $color-white;
+
+	&.theme-dark {
+		background-color: $color-dark;
+	}
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	caption-side: bottom;
+}
+
+textarea {
+	white-space: revert;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+:where(button, [type='button' i], [type='reset' i], [type='submit' i]) {
+	/* stylelint-disable-next-line property-no-vendor-prefix */
+	-webkit-appearance: button;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+	@include themed {
+		/* stylelint-disable-next-line property-no-vendor-prefix */
+		-webkit-box-shadow: 0 0 0 3rem t('input-background-color') inset !important;
+		outline: none;
+		background-color: t('input-background-color') !important;
+	}
+}
+
+select {
+    appearance: none;
+}
+
+img {
+	width: 100%;
+}
+
+.react-modal-overlay {
+	position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 30%);
+	backdrop-filter: blur(.2rem);
+}
+
+.react-modal-image-overlay {
+	position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 85%);
+	backdrop-filter: blur(.2rem);
+}
+
+.react-tabs {
+	&__tab-list {
+		@include x-display-flex;
+		@include x-align-items(center);
+		margin: 2rem 0;
+		border-bottom: none;
+	}
+
+	&__tab {
+		cursor: pointer;
+		padding: 1rem 3rem;
+		font-size: $font-16;
+		border: none;
+
+		&:hover {
+			background-color: rgb(228, 243, 174);
+		}
+
+		&--selected {
+			border-radius: 0;
+			border: none;
+			border-bottom: .2rem solid $color-dark;
+		}
+	}
+}
+
+@media (width >= 76.8rem) {
+	#root {
+		@include x-display-flex;
+		gap: 1rem;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+
+// LAYOUT
+
+#root {
+	@include x-display-flex;
+}
+
+// TABS
+
+.account-tabs {
+	.react-tabs {
+		&__tab-list {
+			@include x-display-flex;
+			gap: 1rem;
+
+			border-bottom: none;
+			margin: 2rem 0 4rem;
+		}
+
+		&__tab {
+			@include rounded($large-border-radius);
+			@include transition($main-transition);
+			background-color: $color-white;
+			font-size: $font-16;
+			padding: 1rem 2rem;
+			border: none;
+			overflow: hidden;
+
+			&:hover,
+			&--selected {
+				background-color: $main-color;
+				color: $color-white;
+			}
+
+			&::before, 
+			&::after {
+				content: none;
+			}
+		}
+	}
+}

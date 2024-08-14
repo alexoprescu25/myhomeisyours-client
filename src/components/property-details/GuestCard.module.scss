@@ -1,0 +1,46 @@
+.guest {
+    &:not(:last-child) {
+        padding: 0 {bottom: 1rem};
+        margin: 0 {bottom: 1rem};
+        border-bottom: .1rem solid rgba($color-dark, 10%);
+    }
+
+    &__header {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+    }
+
+    &__email {
+        color: $main-blue-color;
+        font-size: $font-14;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__phone {
+        color: $main-blue-color;
+        font-size: $font-16;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__delete {
+        @include rounded-button(
+            $font-size: $font-20,
+            $color: $delete-background-color
+        )
+    }
+
+    &__link {
+        color: $main-blue-color;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

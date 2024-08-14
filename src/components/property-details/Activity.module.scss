@@ -1,0 +1,20 @@
+.activity {
+    @include max-width(80rem);
+    
+    &:not(:last-child) {
+        margin: 0 {bottom: 1rem};
+        padding: 0 {bottom: 1rem};
+        border-bottom: .1rem solid rgb(230, 230, 230);
+    }
+
+    &__container {
+        @include x-display-flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__date {
+        font-size: $font-14;
+        color: rgb(136, 136, 136);
+    }
+}

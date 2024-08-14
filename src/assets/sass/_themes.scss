@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+$themes: (
+  dark: (
+    reverse-background-color: $color-white,
+    background-color: $color-dark,
+    component-background-color: rgb(14, 23, 35),
+    box-background-color: rgb(14, 23, 35),
+    input-background-color: rgb(22, 35, 51),
+    text: $color-white
+  ),
+  light: (
+    reverse-background-color: $color-dark,
+    background-color: rgb(240, 240, 240),
+    component-background-color: $color-dark,
+    box-background-color: $color-white,
+    input-background-color: rgb(245, 245, 245),
+    text: $color-dark
+  )
+);
+
+@mixin themed { 
+    @each $theme, $map in $themes { 
+      :global(.theme-#{$theme}) & { 
+        $theme-map: () !global; 
+   
+        @each $key, $submap in $map { 
+          $value: map.get($map, $key); 
+          $theme-map: map.merge( 
+            $theme-map, 
+            ( 
+              $key: $value, 
+            ) 
+          ) !global; 
+        } 
+        @content; 
+
+        $theme-map: null !global; 
+      } 
+    } 
+}
+
+@function t($key) { 
+    @return map-get($theme-map, $key); 
+}

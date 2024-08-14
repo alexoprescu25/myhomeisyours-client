@@ -1,0 +1,19 @@
+.layout {
+    @include max-width(calc(100vw - 2rem));
+    @include x-display-flex;
+    justify-content: center;
+    height: 100vh;
+    gap: 1rem;
+
+    &__content {
+        @include max-width(100%);
+        @include x-display-flex;
+        @include x-align-items(center);
+        justify-content: center;
+
+        @include mobile {
+            @include x-flex(1);
+            padding: 1rem;
+        }
+    }
+}

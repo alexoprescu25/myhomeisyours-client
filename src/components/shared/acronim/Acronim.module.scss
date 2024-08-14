@@ -1,0 +1,11 @@
+.acronim {
+    @include rounded(50%);
+    @include x-display-flex;
+    @include x-flex-direction(column);
+    @include x-align-items(center);
+    justify-content: center;
+
+    p {
+        color: $color-white;
+    }
+}

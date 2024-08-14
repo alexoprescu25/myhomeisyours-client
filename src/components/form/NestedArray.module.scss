@@ -1,0 +1,38 @@
+.field {
+    margin: 2rem 0;
+    padding: 0 {bottom: 2rem;};
+    border-bottom: .1rem solid rgba($color-dark, 20%);
+    
+    &__item {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        & > div:first-child {
+            @include max-width(100%);
+        }
+    }
+
+    &__actions {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        margin: 1.4rem 0;
+    }
+
+    &__label {
+        font-size: $font-16;
+    }
+
+    &__rounded {
+        @include rounded-button($font-size: $font-20)
+    }
+
+    &__actions {
+        @include max-width(fit-content);
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,35 @@
+.amenities {
+    height: calc(100vh - 4rem);
+    max-height: 60rem;
+    margin: 4rem 0;
+    overflow-y: scroll;
+    @extend %scrollbar;
+    padding-bottom: 6rem;
+
+    &__title {
+        margin: 1rem 0 2rem 0;
+        padding: 1rem 0;
+        border-bottom: .1rem solid rgba($color-dark, 20%);
+    }
+
+    &__summary {
+        @include max-width(50rem);
+    }
+
+    &__items {
+        @include x-display-flex;
+        @include x-flex-wrap(wrap);
+        gap: 2rem 4rem;
+    }
+
+    &__item {
+        @include max-width(100%);
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+
+        img {
+            @include max-width(3rem);
+        }
+    }
+}

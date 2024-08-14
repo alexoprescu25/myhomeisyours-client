@@ -1,0 +1,293 @@
+@mixin smallScreen {
+    @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+
+.property {
+    @include max-width(160rem);
+    margin: 4rem auto;
+
+    &--branded {
+        margin-top: 9rem;
+    }
+
+    * {
+        font-family: "Inter", sans-serif;;
+    }
+
+    &__back {
+        @include rounded($large-border-radius);
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 12px;
+            border: none;
+            box-shadow: inset 0 0 0 1.5px #000; 
+            background-color: $color-white;
+            color: $color-dark;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            margin: 0 10px 20px 0;
+
+            svg {
+                margin-right: 6px;
+                font-size: 14px;
+            }
+    }
+
+    @include smallScreen {
+        @include max-width(100%);
+    }
+
+    &__container {
+        @include max-width(100%);
+        @include x-display-flex;
+        justify-content: space-between;
+        gap: 4rem;
+
+        padding: 2rem 4rem;
+
+        @include smallScreen {
+            @include x-flex-direction(column-reverse);
+        }
+    }
+
+    &__content {
+        @include desktop {
+            @include x-flex(1 0 40%);
+            @include max-width(40%);
+        }
+    }
+
+    &__gallery {
+        @include desktop {
+            @include x-flex(1 0 60%);
+            @include max-width(60%);
+        }
+    }
+
+    &__header {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: 1rem;
+
+        margin: 0 {bottom: 4rem};
+    }
+
+    &__heading {
+        font-size: $font-30;
+        font-weight: $bold-weight;
+
+        @include smallScreen {
+            font-size: $font-24;
+        }
+    }
+
+    &__address {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+
+        margin: 0 {bottom: 2rem};
+    }
+
+    &__general {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 4rem;
+    }
+
+    &__count {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: .4rem;
+
+        div {
+            @include x-display-flex;
+            @include x-align-items(center);
+            gap: .6rem;
+        }
+
+        img {
+            @include max-width(3rem);
+        }
+
+        p {
+            &:first-child {
+                font-size: 1.8rem;
+                font-weight: $bold-weight;
+            }
+
+            &:last-child {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    &__description {
+        margin: 0 {bottom: 4rem};
+    }
+
+    &__html {
+        &--long {
+            display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    &__title {
+        margin: 1rem 0 2rem 0;
+        padding: 1rem 0;
+        border-bottom: .1rem solid rgba($color-dark, 20%);
+    }
+
+    &__summary {
+        @include max-width(32rem);
+    }
+
+    &__items {
+        @include x-display-flex;
+        @include x-flex-wrap(wrap);
+        gap: 2rem 4rem;
+    }
+
+    &__item {
+        @include max-width(14rem);
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+
+        img {
+            @include max-width(3rem);
+        }
+    }
+
+    &__actions {
+        margin: 2rem 0;
+    }
+
+    &__btn {
+        @include transition($main-transition);
+        @include rounded($small-border-radius);
+        background-color: $color-white;
+        border: .1rem solid $color-dark;
+        padding: .6rem 1.4rem;
+        font-size: $font-16;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-dark;
+            color: $color-white;
+        }
+    }
+
+    &__images {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: 2rem;
+
+        @media screen and (min-width: 1024px) {
+            position: sticky;
+            top: 2rem;
+        }
+    }
+
+    &__image {
+        @include max-width(80rem);
+        position: relative;
+
+        img {
+            @include rounded($large-border-radius);
+            @include max-width(100%);
+        }
+    }
+
+    &__secondaryGallery {
+        @include max-width(80rem);
+        @include x-display-flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        @media screen and (max-width: 1023px) {
+            display: none;
+        }
+    }
+
+    &__secondaryImage {
+        @include max-width(38rem);
+        height: 24rem;
+
+        img {
+            @include rounded($large-border-radius);
+            @include max-width(100%);
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__benefits {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: .8rem;
+    }
+
+    &__point {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+
+        svg {
+            font-size: $font-16;
+            color: rgb(115, 154, 125);
+        }
+    }
+
+    &__showAll {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+        
+        position: absolute;
+        right: 2rem;
+        bottom: 1rem;
+    }   
+
+    &__map {
+        @include x-display-flex;
+        justify-content: center;
+
+        & > div {
+            margin: 2rem;
+
+            @media screen and (min-width: 1550px) {
+                margin: 2rem 10rem 2rem 4rem;
+            }
+        }
+    }
+
+    &__assets {
+        @include x-display-flex;
+        @include x-flex-wrap(wrap);
+        gap: 1rem;
+    }
+}
+
+.asset {
+    @include max-width(18rem);
+    @include rounded($small-border-radius);
+    border: .1rem solid rgba($color-dark, 20%);
+    padding: 1rem 2rem;
+
+    &__container {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: 1rem;
+    }
+
+    img {
+        @include max-width(3rem);
+    }
+}

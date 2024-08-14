@@ -1,0 +1,98 @@
+// COLORS
+
+$main-background-color: rgba(33, 36, 41, 1);
+$main-dark-color: rgb(22, 23, 24);
+$main-green-color:rgb(51, 178, 73);
+$main-green-hover: rgb(30, 134, 36);
+$delete-background-color: rgb(190, 0, 0);
+$delete-hover-background: rgb(131, 0, 0);
+$dark-blue: rgb(34, 51, 84);
+$dark-blue-hover: #0f203d;
+$light-gray: rgba(34, 51, 84, 0.7);
+$purple: rgb(85, 105, 255);
+$color-purple: rgb(90, 1, 229);
+$blue: rgb(12,50,201);
+$blue-hover: rgb(10, 43, 172);
+$main-blue-color: $blue;
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+$color-black-light: rgb(33, 43, 54);
+$main-dark-blue: rgb(6, 14, 48);
+$light-blue: rgb(1, 141, 243);
+$main-body-color: rgb(242, 245, 249);
+$main-orange-color: rgb(255, 69, 0);
+$color-slate-gray: rgb(75, 90, 113);
+$caribe-green: rgba(0, 115, 152);
+$color-dark: rgb(0, 7, 20);
+$color-white: rgb(255, 255, 255);
+$color-grey: rgb(159, 161, 168);
+$color-dark-2: rgb(21, 23, 37);
+$color-gold: rgb(244, 202, 141);
+$primary-text: $main-dark-blue;
+$secondary-color: rgb(36, 52, 117);
+$background-color: $color-white; 
+$main-color: $caribe-green;
+
+// AMOUNT
+
+$amount: 0.1;
+
+// BORDER RADIUS
+
+$extra-small-border-radius: 1rem;
+$small-border-radius: 1.2rem;
+$medium-border-radius: 2rem;
+$large-border-radius: 3rem;
+$full-border-radius: 4rem;
+
+// TRANSITIONS
+
+$main-transition: all 0.3s;
+$input-transition: all 0.2s ease-in;
+
+// BOX SHADOW
+
+$main-box-shadow: 0px 0px .8rem #00000029;
+$card-box-shadow: 0px 0px .6rem #00000029;
+$component-box-shadow: rgba(159, 162, 191, 0.18) 0px 9px 16px, rgba(159, 162, 191, 0.32) 0px 2px 2px;
+$active-box-shadow: 0px 0px 3px 2px #0059ff6e;
+$component-box-shadow-2: 0px 2px 6px #00000029;
+
+// BREAKPOINTS
+
+$breakpoints: (
+  'extra-small': 499px,
+  'small':  767px,
+  'medium': 1023px,
+  'large':  1200px
+) !default;
+
+// FONTS
+
+// SIZE
+
+$main-font: "Poppins", sans-serif;
+$font-16: 1.6rem;
+$font-30: 3rem;
+$font-24: 2.4rem;
+$font-20: 2rem;
+$font-14: 1.4rem;
+$font-12: 1.2rem;
+$font-10: 1rem;
+
+// WEIGHT
+
+$hairline-weight: 100;
+$thin-weight: 200;
+$slim-weight: 300;
+$large-weight: 400;
+$normal-weight: 500;
+$weight-medium: 600;
+$bold-weight: 700;
+$xbold-weight: 800;
+$black-weight: 900;
+
+// MEDIA QUERIES
+
+$tablet-width: 768px;
+$desktop-width: 1024px;

@@ -1,0 +1,598 @@
+@use "sass:color";
+
+//MEDIA QUERIES
+
+@mixin mobile {
+    @media screen and (max-width: #{$tablet-width - 1}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+
+// RESPOND TO BREAKPOINTS
+
+@mixin respond-to($type, $breakpoint) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+      // Prints a media query based on the value
+      @media (#{$type}-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+   
+    // If the key doesn't exist in the map
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin roboto($weight) {
+    font-family: "Roboto", sans-serif;
+    font-weight: $weight;
+    font-style: normal;
+}
+
+// CALC
+
+@mixin x-calc ($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin primary-input(
+    $max-width: 100%, 
+    $height: 49px, 
+    $padding: 0,
+    $border-radius: .8rem
+    ) {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $max-width;
+    height: $height;
+    vertical-align: middle;
+    line-height: $height;
+    padding: $padding;
+    border: none;
+    background-color: rgb(244, 244, 246);
+    color: $color-dark; 
+
+    @include rounded($border-radius);
+    @include transition($input-transition);
+    
+    @include input-placeholder {
+        visibility: hidden;
+    }
+        
+    font: {
+        family: inherit;
+        size: $font-16;
+        weight: $large-weight;
+    }
+}
+
+@mixin search-input(
+    $max-width: 100%, 
+    $height: 49px,
+    $margin: auto,
+    $font-size: $font-16
+) {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $max-width;
+    height: $height;
+    vertical-align: middle;
+    line-height: $height;
+    border: 1px solid rgb(190, 190, 190);
+    box-shadow: 0px .3rem .6rem #00000029;
+
+    @include rounded($full-border-radius);
+    @include transition($main-transition);
+    padding: 0 2.2rem;
+    margin: $margin;
+    font: {
+        family: inherit;
+        size: $font-size;
+        weight: $large-weight;
+    }
+
+    &:focus {
+        outline: none;
+
+        @include box-shadow(0 .1rem .1rem 0 rgba(65,69,73,.3),0 .1rem .3rem .1rem rgba(65,69,73,.15));
+    }
+}
+
+@mixin rounded($border) {
+    -webkit-border-radius: $border;
+	-moz-border-radius: $border;
+	border-radius: $border;
+}
+
+@mixin circle($width) {
+    width: $width;
+    height: $width;
+    
+    @include rounded(50%);
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin appearance($type) {
+    appearance: $type;
+	-moz-appearance: $type;
+	-webkit-appearance: $type;
+}
+
+@mixin center-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hidden {
+    visibility: hidden;
+    display: none !important;
+}
+
+@mixin square($value) {
+    width: $value;
+    height: $value;
+}
+
+@mixin flex($value) {
+    flex: 0 0 $value; 
+    max-width: $value;
+    -ms-flex: 0 0 $value; 
+    -webkit-box-flex: 0; 
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+@mixin scrollbar(
+    $width: 0, 
+    $track: transparent, 
+    $thumb: rgb(186, 186, 186),
+    $hover: rgb(100, 100, 100)
+) {
+    &::-webkit-scrollbar {
+        width: $width;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $track;
+    }   
+
+    &::-webkit-scrollbar-thumb {
+        background: $thumb;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $hover;
+    }
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -o-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+}
+
+@mixin box-shadow($value...) {
+    -moz-box-shadow: $value;
+    -webkit-box-shadow: $value;
+    box-shadow: $value;
+}
+
+@mixin button(
+    $max-width: fit-content,
+    $padding: 0 20px,
+    $background: $main-background-color,    
+    $margin: 0,
+    $font-size: $font-16,
+    $color: $color-white
+) {
+    @include rounded($large-border-radius);
+    @include transition($main-transition);
+    @include x-display-flex;
+    @include x-align-items(center);
+    justify-content: center;
+
+    min-width: 10rem;
+    width: 100%;
+    max-width: $max-width;
+    min-height: 4rem;
+    padding: $padding;
+    border: .1rem solid $background;
+    background: $background;
+    color: $color;
+    font-size: $font-size;
+    cursor: pointer;
+    margin: $margin;
+    text-decoration: none;
+    text-align:center;
+
+    &:has(i) {
+        i {
+            margin: 0 {right: 6px};
+        }
+    }
+
+    &:is(:hover, :active) {
+        background: color.adjust($background, $lightness: -14%);
+        border-color: color.adjust($background, $lightness: -14%);
+        color: $color-white;
+    }
+
+    &.center {
+        margin-inline: auto;
+    }
+
+    &.small {
+        font-size: $font-12;
+        padding: .4rem 1.4rem;
+    }
+
+    &.medium {
+        padding: .6rem 2rem;
+    }
+
+    &.outline {
+        background: $color-white;
+        color: $background;
+        border: .1rem solid currentcolor;
+
+        &:hover {
+            background: $background;
+            color: $color-white;
+        }
+    }
+
+    &:disabled {
+        pointer-events: none;
+        background: rgb(228, 228, 228);
+        color: rgb(116, 116, 116);
+        border: .1rem solid rgb(228, 228, 228);
+    }
+}
+
+@mixin icon-button(
+    $color: $delete-background-color
+) {
+    display: block;
+    font-size: $font-16;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: $color;
+
+    @include circle(4rem);
+    @include transition($main-transition);
+    
+    &:hover {
+        background: fade-out($color, $amount: 0.9);
+    }
+} 
+
+@mixin max-width($value, $center: false) {
+    width: 100%;
+    max-width: $value;
+
+    @if $center == center {
+        margin: 0 auto;
+    }
+}
+
+@mixin rounded-button(
+    $width: 40px,
+    $font-size: #{$width - 10px},
+    $font-weight: 400,
+    $color: $main-background-color
+) {
+    @include x-display-flex;
+    @include x-align-items(center);
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: $color;
+
+    &:hover {
+        background-color: rgba($color, 20%);
+    }
+    
+
+    @include circle($width);
+    line-height: $width;
+    
+    @include transition($main-transition);
+    @extend %center-element;
+    cursor: pointer;
+    font: {
+        size: $font-size;
+        weight: $font-weight;
+    }
+
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+// Flexbox
+@mixin flex($values...) {
+    -webkit-box-flex: $values;
+    -moz-box-flex:  $values;
+    -ms-flex:  $values;
+    -webkit-flex:  $values;
+    flex:  $values;
+}
+
+@mixin flex-direction($direction) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    @if $direction == column
+        {
+        -webkit-flex-direction:vertical;
+        -moz-flex-direction:vertical;
+        -ms-flex-direction:column;
+        -webkit-flex-direction:column;
+        flex-direction:column;
+        }
+    @else
+        {
+        -webkit-flex-direction:horizontal;
+        -moz-flex-direction:horizontal;
+        -ms-flex-direction:row;
+        -webkit-flex-direction:row;
+        flex-direction:row;
+        }
+ }
+
+//Responsive height
+@mixin vw-height($min-height, $max-height) {
+	min-height: $min-height;
+	max-height: $max-height;
+    height: 100%;
+}
+
+// X DISPLAY FLEX
+
+// FLEX
+
+@mixin x-display-flex {
+	display: -webkit-box;  // Chrome 20-, iOS 6-, Safari 3.1  -6
+	display: -moz-box;     // FF 19-
+	display: -webkit-flex; // Chrome 21 - 28
+	display: -ms-flexbox;  // IE 10
+	display: flex;         // FF 20+, Chrome 29+, Opera 12.1, 17+
+}
+
+/// @example
+///   .selector {
+///     @include x-flex(1 1 auto);
+///   }
+
+@mixin x-flex ($values...) {
+	-webkit-box-flex: $values; // Chrome 20-, iOS 6-, Safari 3.1 - 6
+	   -moz-box-flex: $values; // FF 19-
+	    -webkit-flex: $values; // Chrome 21 - 28
+	        -ms-flex: $values; // IE 10
+	            flex: $values; // FF 20+, Chrome 29+, Opera 12.1, 17+
+}
+
+/// @example
+///   .selector {
+///     @include x-flex-wrap(wrap);
+///   }
+///
+@mixin x-flex-wrap ($value) {
+	// IE 10
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else {
+		-ms-flex-wrap: $value;
+	}
+	-webkit-flex-wrap: $value; // Chrome 20-, iOS 6-, Safari 3.1 - 6
+	        flex-wrap: $value; // FF 28+, Chrome 21+, Opera 12.1, 17+, IE 11
+}
+
+/// @example
+///   .selector {
+///     @include x-align-content(center);
+///   }
+///
+@mixin x-align-content ($value) {
+    // IE 10
+    @if $value == flex-start {
+        -ms-flex-line-pack: start;
+    } @else if $value == flex-end {
+        -ms-flex-line-pack: end;
+    } @else if $value == space-between {
+        -ms-flex-line-pack: justify;
+    } @else if $value == space-around {
+        -ms-flex-line-pack: distribute;
+    } @else {
+        -ms-flex-line-pack: $value;
+    }
+   -webkit-align-content: $value; // Chrome 20-, iOS 6-, Safari 3.1 - 6
+      -moz-align-content: $value; // FF 19-
+           align-content: $value; // FF 20+, Chrome 21+, Opera 12.1, 17+, IE 11
+}
+
+/// @example
+///   .selector {
+///     @include x-flex-direction(row-reverse);
+///   }
+///
+@mixin x-flex-direction ($value) {
+	@if $value == row {
+		-webkit-box-direction: normal;
+		   -moz-box-direction: normal;
+		   -webkit-box-orient: horizontal;
+		      -moz-box-orient: horizontal;
+	} @else if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		   -moz-box-direction: reverse;
+		   -webkit-box-orient: horizontal;
+		      -moz-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		   -moz-box-direction: normal;
+		   -webkit-box-orient: vertical;
+		      -moz-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		   -moz-box-direction: reverse;
+		   -webkit-box-orient: vertical;
+		      -moz-box-orient: vertical;
+	}
+
+ 	-webkit-flex-direction: $value;
+ 	   -moz-flex-direction: $value;
+ 	    -ms-flex-direction: $value;
+ 	        flex-direction: $value;
+ }
+
+ // Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+@mixin x-align-items($value: stretch) {
+    @if $value == flex-start {
+        -webkit-box-align: start;
+            -moz-box-align: start;
+            -ms-flex-align: start;
+    } @else if $value == flex-end {
+        -webkit-box-align: end;
+            -moz-box-align: end;
+            -ms-flex-align: end;
+    } @else {
+        -webkit-box-align: $value;
+            -moz-box-align: $value;
+            -ms-flex-align: $value;
+    }
+    -webkit-align-items: $value;
+            align-items: $value;
+}
+
+// ANIMATIONS
+
+
+/// @example
+///   .selector {
+///     @include x-animation(jump 1s ease-out);
+///   }
+///
+
+@mixin animation($value...) {
+    -webkit-animation: $value;
+      -moz-animation: $value;
+        -o-animation: $value;
+           animation: $value;
+}
+
+@mixin x-animation ($values) {
+	-webkit-animation: $values;
+	        animation: $values;
+}
+
+
+///
+/// Generates keyframe animations.
+///
+/// @param {String} $name
+///
+/// @example
+///    @include x-keyframes(jump) {
+///      from { top: 0; }
+///      to { top: -10px; }
+///    }
+///
+@mixin x-keyframes ($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin delete-modal {
+    &__container {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        @include x-align-items(center);
+        gap: 1rem;
+        
+        padding: 4rem 2rem;
+    }
+
+    &__image {
+        @include max-width(6rem);
+
+        img {
+            @include max-width(100%);
+        }
+    }
+
+    &__actions {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        margin: 0 {top: 2rem;};
+    }
+
+    &__heading {
+        font-size: $font-24;
+        font-weight: $weight-medium;
+        text-align: center;
+    }
+}

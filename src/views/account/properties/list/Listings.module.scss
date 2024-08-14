@@ -1,0 +1,57 @@
+.results {
+    padding: 0 {top: 3rem};
+
+    &__container,
+    &__address {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        gap: 1rem;
+
+        margin-inline: 1rem;
+    }
+
+    &__container {
+        @include max-width(calc(100% - 2rem), center);
+        max-height: 50rem;
+        overflow-y: scroll;
+        position: relative;
+
+        &::-webkit-scrollbar {
+            width: .6rem;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: rgb(241, 241, 241); 
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: rgb(136, 136, 136); 
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgb(85, 85, 85); 
+        }
+    }
+
+    &__btn {
+        @include max-width(100%);
+        background-color: $color-white; 
+        position: sticky;
+        bottom: -1rem;
+        padding: 2rem;
+        border-top: .1rem solid rgba($color-dark, 50%);
+    }
+}
+
+.listings {
+    &__distance {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+        
+        font-size: $font-16;
+    }
+}

@@ -1,0 +1,44 @@
+.details {
+    &__container {
+        @include x-display-flex;
+        gap: 2rem;
+    }
+
+    &__info {
+        @include x-flex(1 0 60rem);
+        @include max-width(60rem);
+    }
+
+    &__header {
+        margin: 0 2rem;
+
+        a {
+            @include button;
+        }
+    }
+}
+
+.account {
+    &__header {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        margin: 2rem 0;
+    }
+
+    &__form {
+        form {
+            @include x-display-flex;
+            @include x-flex-direction(column);
+            gap: 1rem;
+        }
+    }
+}
+
+.activity {
+    &__container {
+        padding: 1rem;
+        border-bottom: .1rem solid rgba($color-black, 20%);
+    }
+}

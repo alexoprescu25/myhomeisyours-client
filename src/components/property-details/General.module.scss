@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+@mixin small-font {
+    @include roboto(500);
+    color: #949494; 
+    font-size: 14px
+}
+
+@mixin default-font {
+    @include roboto(500);
+    color: #000000; 
+    font-size: 15px
+}
+
+@mixin subtitle-font {
+    @include roboto(500);
+    color: #000000; 
+    font-size: 22px
+}
+
+.property {
+    &__title {
+        margin: 1rem 0 2rem 0;
+        padding: 1rem 0;
+        border-bottom: .1rem solid rgba($color-dark, 20%);
+    }
+
+    &__summary {
+        @include max-width(80rem);
+    }
+
+    &__items {
+        @include x-display-flex;
+        @include x-flex-wrap(wrap);
+        gap: 2rem 4rem;
+    }
+
+    &__item {
+        @include max-width(20rem);
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+
+        img {
+            @include max-width(3rem);
+        }
+    }
+
+    &__container {
+        display: flex;
+
+
+        &--left {
+            border-top:1px solid rgb(209, 209, 209);
+            border-right:1px solid rgb(209, 209, 209);
+            width: 75%;
+            padding: 30px 30px 0 0;
+        }
+
+        &--right {
+            @include x-display-flex;
+            @include x-flex-direction(column);
+            gap: 2rem;
+
+            border-top: .1rem solid rgb(209, 209, 209);
+            padding: 30px;
+            width: 25%;
+        }
+    }
+
+    &__externalbuttons {
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        @include x-flex-wrap(wrap);
+        gap: 1rem;
+
+        a {
+            @include x-display-flex;
+            @include x-align-items(center);
+            gap: .6rem;
+            
+            color: $color-dark;
+            font-size: $font-16;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        
+            &.inactive {
+                color: rgb(209, 209, 209);
+                cursor: not-allowed;
+    
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__infocards {
+        @include x-display-flex;
+        flex-direction: column;
+        border-radius:10px;
+        line-height: 25px;
+        padding: 25px;
+        border: 1px solid rgb(209, 209, 209);
+        border-radius: 10px;
+
+        &--title{
+            @include subtitle-font();
+            margin-bottom: 15px
+        }
+
+        &--item, &--itemUpperCase, &--postcode{
+            @include default-font();
+            letter-spacing: 1px;
+        }
+
+        span{
+            @include small-font(); 
+            display: flex;
+        }
+
+        &--itemUpperCase::first-letter{
+            text-transform: uppercase;
+        }
+        &--city::first-letter{
+            text-transform: uppercase;
+        }
+
+        &--postcode{
+            text-transform: uppercase;
+        }
+    }
+
+    &__gallery {
+        position: relative;
+
+        img {
+            border-radius:10px;
+            @include max-width(100%);
+            max-height: 600px;
+        }
+    }
+
+    &__item {
+        img {
+            @include max-width(4rem);
+        }
+    }
+
+    &__showImages {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 2;
+    }
+
+    &__underImageInformation {
+        display: flex;
+        border-bottom: 1px solid rgb(209, 209, 209);
+
+        &--item{
+            display: flex;
+            flex-direction:column-reverse;
+            @include small-font();
+            padding: 15px;
+            margin: 0 25px 0 0 ;
+
+            span{
+                @include default-font();
+            }
+        }
+
+    }
+}
+
+.breadcrumbs {
+    @include x-display-flex;
+    @include x-align-items(center);
+    gap: 1rem;
+    margin-bottom: 15px;
+
+    p{
+        @include small-font();
+    }
+
+    &__link {
+        display: block;
+        @include small-font();
+        
+        
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

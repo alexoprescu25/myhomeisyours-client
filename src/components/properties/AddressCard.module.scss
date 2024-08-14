@@ -1,0 +1,46 @@
+$status: (
+    danger: rgb(255, 34, 0),
+    warning: rgb(255, 136, 0),
+    info: rgb(22, 75, 213),
+    success: rgb(0, 118, 0)
+);
+
+.address {
+    @include transition($main-transition);
+    @include box-shadow($card-box-shadow);
+    @include rounded($small-border-radius);
+    padding: 2rem;
+    cursor: pointer;
+
+    &__confidence {
+        font-size: $font-14;
+    }
+
+    &__address {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+
+        color: rgb(94, 94, 94);
+
+        svg {
+            font-size: $font-20;
+        }
+    }
+
+    &__percentage {
+        @each $item, $value in $status {
+            &--#{'' + $item} {
+                color: $value;
+            }
+        }
+    }
+
+    &:hover {
+        @include box-shadow($active-box-shadow);
+    }
+
+    &--active {
+        @include box-shadow($active-box-shadow);
+    }
+}

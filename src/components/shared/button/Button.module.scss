@@ -1,0 +1,13 @@
+$main-buttons: (
+  main: $main-color,
+  dark: $color-dark,
+  danger: $delete-background-color,
+  gold: rgb(169,126,83),
+  slate-grey: $color-slate-gray
+);
+
+@each $item, $value in $main-buttons {
+    .btn-#{"" + $item} {
+      @include button($background: $value);
+    }
+}

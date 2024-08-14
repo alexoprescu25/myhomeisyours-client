@@ -1,0 +1,71 @@
+.snackbar {
+    @include rounded($small-border-radius);
+    @include max-width(fit-content);
+
+    border: .1rem solid rgba($color-white, 30%);
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 99;
+
+    padding: 1rem 2rem;
+
+    &__container {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: 1rem;
+    }
+
+    &__icon {
+        @include rounded($extra-small-border-radius);
+        padding: 1rem;
+
+        svg {
+            font-size: 2rem;
+        }
+    }
+
+    &--info {
+        background: rgb(2,35,75);
+        background: linear-gradient(90deg, rgba(2,35,75,100%) 0%, rgba(35,38,47,100%) 100%);
+
+        .snackbar {
+            &__icon {
+                background-color: rgb(6, 44, 86);
+                color: rgb(4, 117, 252);
+            }
+        }
+    }
+
+    &--success {
+        background: rgb(7,69,49);
+        background: linear-gradient(90deg, rgba(7,69,49,100%) 0%, rgba(35,38,47,100%) 100%);
+
+        .snackbar {
+            &__icon {
+                background-color: rgb(8, 81, 59);
+                color: rgb(11, 188, 131);
+            }
+        }
+    }
+
+    &--error {
+        background: rgb(73,2,1);
+        background: linear-gradient(90deg, rgba(73,2,1,100%) 0%, rgba(35,38,47,100%) 100%);
+
+        .snackbar {
+            &__icon {
+                background-color: rgb(89, 12, 14);
+                color: rgb(254, 81, 88);
+            }
+        }
+    }
+
+    &__text {
+        color: $color-white;
+    }
+
+    &__button {
+        @include rounded-button($font-size: $font-20, $color: $color-white);
+    }
+}

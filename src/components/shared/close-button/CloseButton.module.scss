@@ -1,0 +1,3 @@
+.button {
+    @include rounded-button($font-size: $font-20);
+}

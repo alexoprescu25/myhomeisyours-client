@@ -1,0 +1,28 @@
+.accounts {
+    @include max-width(140rem);
+
+    &__link {
+        color: $main-color;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__delete {
+        @include rounded-button(
+            $font-size: $font-20,
+            $color: $delete-background-color
+        )
+    }
+
+    &__name {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem
+    }
+}
+
+.delete {
+    @include delete-modal;
+}

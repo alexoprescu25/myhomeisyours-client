@@ -1,0 +1,9 @@
+.filter {
+    &__container {
+        form {
+            @include x-display-flex;
+            @include x-align-items(center);
+            gap: 1rem;
+        }
+    }
+}

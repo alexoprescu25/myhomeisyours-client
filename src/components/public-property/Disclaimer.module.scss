@@ -1,0 +1,30 @@
+.property {
+    margin: 4rem auto;
+
+    &__container {
+        @include max-width(70rem);
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        @include x-align-items(center);
+        gap: 1rem;
+    }
+
+    &__heading {
+        font-size: $font-30;
+        font-weight: $weight-medium;
+        text-align: center;
+
+        @include mobile {
+            font-size: $font-20;
+        }
+    }
+
+    &__text {
+        font-size: $font-16;
+        text-align: center;
+    }
+
+    &__animation {
+        @include max-width(14rem);
+    }
+}

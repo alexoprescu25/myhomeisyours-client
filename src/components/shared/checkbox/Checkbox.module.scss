@@ -1,0 +1,40 @@
+.checkbox-input {
+    @include transition($main-transition);
+    position: relative;
+    margin: 1rem 0;
+
+    @include themed {
+        color: t('text');
+    }
+
+    &:hover::after {
+        background: rgba($blue, .1);
+    }
+
+    input {
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    label {
+        @include transition($main-transition);
+
+        font-size: $font-16;
+        display: flex;
+        align-items: center;
+        gap: 0 $font-10;
+        cursor: pointer;
+    }
+
+    span {
+        @include x-display-flex;
+        @include x-align-items(center);
+        gap: .6rem;
+        font-size: $font-16;
+    }
+
+    img {
+        @include max-width(2rem);
+    }
+}

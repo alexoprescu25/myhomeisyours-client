@@ -1,0 +1,9 @@
+.wrapper {
+    @include x-flex(1);
+    margin: 0 {top: 2rem};
+    padding: 2rem;
+
+    @include mobile {
+        padding: 4rem 1rem;
+    }
+}

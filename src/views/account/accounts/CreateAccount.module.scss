@@ -1,0 +1,16 @@
+.auth {
+    &__form {
+        @include max-width(50rem);
+        @include x-display-flex;
+        @include x-flex-direction(column);
+        @include x-align-items(center);
+        gap: 1rem;
+
+        min-width: 50rem;
+        padding: 4rem 1rem;
+
+        & > div {
+            width: 100%;
+        }
+    }
+}

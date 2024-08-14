@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "../../../../../../../../../Desktop/work/ongoing/master-template"
+	},
+	{
+		"path": "../../../../../../../../../Desktop/cheatSheet"
+	},
+	{
+		"path": "../../../../../.."
+	},
+	{
+		"path": "../../../../../../../../../Desktop/react"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "UpConstruction"
+  }
+}

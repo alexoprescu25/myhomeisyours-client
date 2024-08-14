@@ -1,0 +1,11 @@
+.close {
+    @include rounded-button(
+        $font-size: $font-20,
+        $color: $color-white
+    );
+
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9;
+}

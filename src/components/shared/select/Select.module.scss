@@ -1,0 +1,65 @@
+// SELECT
+
+.select-box {
+    @include max-width(100%);
+    position: relative;
+
+    .placeholder {
+        @include transition($input-transition);
+        font-size: $font-16;
+        position: absolute;
+        top: 50%;
+        left: 1.6rem;
+        transform: translateY(-50%);
+        background: $color-white;
+        padding: 0 .4rem;
+        pointer-events: none;
+    }
+
+    label {
+        font-size: $font-14;
+        display: block;
+        margin: .8rem 0;
+    }
+
+    select {
+        @include primary-input($padding: 0 22px);
+
+        &:focus {
+            outline: none;
+        }
+    
+        &:focus ~ .placeholder {
+            top: 1rem;
+            left: 2rem;
+            color: rgb(33, 108, 231);
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+    }
+
+    &__danger {
+        p {
+            display: block;
+            margin: .4rem;
+            color: $delete-background-color;
+            font: {
+                size: $font-14;
+            }
+        }
+    }
+
+    &__placeholder {
+        font-size: $font-16;
+    }
+
+    .placeholder.active {
+        top: 1rem;
+        left: 2rem;
+    }
+}
